@@ -69,17 +69,43 @@ class TaxiBookingSystem
         char fromPoint;
         char toPoint;
         int pickupTime;
-        cout<<"Enter Customer ID:";
-        cin>>customerId;
+        while(true)
+        {
+            cout<<"Enter Customer ID:";
+            cin>>customerId;
+            if(cin.fail())
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout << "Error: Input is not an integer. Please try again.\n";
+            }
+            else
+            {
+                break;
+            }
+        }
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout<<"Enter From Point:";
+        cout<<"Enter From Point (A to F):";
         cin>>fromPoint;
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout<<"Enter To Point:";
+        cout<<"Enter To Point (A to F):";
         cin>>toPoint;
         cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        cout<<"Enter Pickup Time:";
-        cin>>pickupTime;
+        while(true)
+        {
+            cout<<"Enter Pickup Time:";
+            cin>>pickupTime;
+            if(cin.fail())
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(),'\n');
+                cout << "Error: Input is not an integer. Please try again.\n";
+            }
+            else
+            {
+                break;
+            }
+        }
         int taxi = checkAvailability(fromPoint, pickupTime);
         if(taxi == -1)
         {
